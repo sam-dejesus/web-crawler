@@ -1,0 +1,18 @@
+# Ignore virtualenv
+venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Logs
+*.log
+
+# Scrapyd deploy files
+.eggs/
+.scrapy/
+
+# System files
+.DS_Store
+Thumbs.db
