@@ -1,7 +1,7 @@
 import scrapy
 from web_crawler_demo.items import *
 from scrapy.exceptions import CloseSpider
-class Spider2(scrapy.Spider):
+class Spider3(scrapy.Spider):
     name = "spider3"
     start_urls = ['http://quotes.toscrape.com']
 
