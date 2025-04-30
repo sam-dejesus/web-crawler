@@ -2,7 +2,7 @@ import scrapy
 from web_crawler_demo.items import item1
 
 
-class Spider1Spider(scrapy.Spider):
+class Spider1(scrapy.Spider):
     name = "spider1"
     start_urls = ['http://quotes.toscrape.com']
 
