@@ -17,3 +17,6 @@ class Spider2(scrapy.Spider):
                 item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
                 item['link'] = response.url
                 yield item
+
+#  scrapy crawl spider2 -a should_scrape=y for the spider to run
+

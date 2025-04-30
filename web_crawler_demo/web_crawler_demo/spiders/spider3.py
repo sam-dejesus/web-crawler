@@ -1,0 +1,33 @@
+import scrapy
+from web_crawler_demo.items import *
+
+class Spider2(scrapy.Spider):
+    name = "spider3"
+    start_urls = ['http://quotes.toscrape.com']
+
+    def __init__(self, cats='a', *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.cats = cats.lower()
+
+    def parse(self, response):
+        if self.cats == 'a':
+            quotes = response.xpath('//div[@class="quote"]')
+            for quote in quotes:
+                item = item1()
+                item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
+                item['link'] = response.url
+                item['tags'] = quote.xpath('.//a[@class="tag"]/text()').getall()
+                yield item
+        elif self.cats == 'b':
+            quotes = response.xpath('//div[@class="quote"]')
+            for quote in quotes:
+                item = item2()
+                item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
+                item['link'] = response.url
+                yield item
+        else:
+            quotes = response.xpath('//div[@class="quote"]')
+            for quote in quotes:
+                item = item3()
+                item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
+                yield item

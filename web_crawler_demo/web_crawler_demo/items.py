@@ -8,4 +8,14 @@ import scrapy
 class item1(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
+    tags = scrapy.Field()
     pass
+
+class item2(scrapy.Item):
+    title = scrapy.Field()
+    link = scrapy.Field()
+
+
+class item3(scrapy.Item):
+    title = scrapy.Field()
+
