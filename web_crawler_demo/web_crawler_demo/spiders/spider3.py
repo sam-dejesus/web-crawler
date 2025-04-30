@@ -1,6 +1,6 @@
 import scrapy
 from web_crawler_demo.items import *
-
+from scrapy.exceptions import CloseSpider
 class Spider2(scrapy.Spider):
     name = "spider3"
     start_urls = ['http://quotes.toscrape.com']
@@ -25,9 +25,11 @@ class Spider2(scrapy.Spider):
                 item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
                 item['link'] = response.url
                 yield item
-        else:
+        elif self.cats == 'c':
             quotes = response.xpath('//div[@class="quote"]')
             for quote in quotes:
                 item = item3()
                 item['title'] = quote.xpath('.//span[@class="text"]/text()').get()
                 yield item
+        else:
+            raise CloseSpider('Param Error check input values')

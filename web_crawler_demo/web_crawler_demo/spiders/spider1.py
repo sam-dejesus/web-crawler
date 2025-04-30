@@ -1,6 +1,6 @@
 import scrapy
 from web_crawler_demo.items import item1
-
+# from scrapy.exceptions import CloseSpider
 
 class Spider1(scrapy.Spider):
     name = "spider1"
