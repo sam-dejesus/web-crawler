@@ -16,3 +16,5 @@ __pycache__/
 # System files
 .DS_Store
 Thumbs.db
+
+web_crawler_demo/.env

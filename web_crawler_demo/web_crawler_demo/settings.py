@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "web_crawler_demo.pipelines.JsonPipeline": 300,
+   "web_crawler_demo.pipelines2.DbPipeline":100,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,3 +91,13 @@ ITEM_PIPELINES = {
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  
+
+MONGO_URI = os.getenv("MONGO_URI")
+MONGO_DATABASE = os.getenv("MONGO_DATABASE")
+
